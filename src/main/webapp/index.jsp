@@ -11,7 +11,13 @@
     <title>Dzisiaj jest...</title>
 </head>
 <body>
-<h1>Dzisiaj jest: <% LocalDateTime now = LocalDateTime.now();
-    out.print(now); %></h1>
+<p>Server name: ${pageContext.request.serverName}</p>
+<p>Context path: ${pageContext.request.contextPath}</p>
+<p>Port: ${pageContext.request.serverPort}</p>
+<p>Request URI: ${pageContext.request.requestURI}</p>
+
+<jsp:forward page="redirected.jsp">
+    <jsp:param name="myParam" value="moj parametr"/>
+</jsp:forward>
 </body>
 </html>
