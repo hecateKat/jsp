@@ -8,16 +8,17 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Dzisiaj jest...</title>
+    <title>Parametry wyszukane</title>
 </head>
 <body>
-<p>Server name: ${pageContext.request.serverName}</p>
-<p>Context path: ${pageContext.request.contextPath}</p>
-<p>Port: ${pageContext.request.serverPort}</p>
-<p>Request URI: ${pageContext.request.requestURI}</p>
+<a href="search.jsp">search</a>
+<%
+    Cookie searchIdCookie = new Cookie("searchIdCookie", "123456");
+    int oneDay = 60*60*24;
+    searchIdCookie.setMaxAge(oneDay);
+    response.addCookie(searchIdCookie);
+%>
 
-<jsp:forward page="redirected.jsp">
-    <jsp:param name="myParam" value="moj parametr"/>
-</jsp:forward>
+
 </body>
 </html>
