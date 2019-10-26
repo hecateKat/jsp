@@ -5,13 +5,34 @@
          http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1">
 
-<!--    <servlet>-->
-<!--        <servlet-name>helloWorld</servlet-name>-->
-<!--        <servlet-class>pl.sda.HelloWorldServlet</servlet-class>-->
-<!--    </servlet>-->
+    <servlet>
+        <servlet-name>helloWorld</servlet-name>
+        <servlet-class>pl.sda.servlets.HelloWorldServlet</servlet-class>
+        <init-param>
+            <param-name>userId</param-name>
+            <param-value>123456</param-value>
+        </init-param>
+        <init-param>
+            <param-name>localization</param-name>
+            <param-value>Poland</param-value>
+        </init-param>
+    </servlet>
 
-<!--    <servlet-mapping>-->
-<!--        <servlet-name>helloWorld</servlet-name>-->
-<!--        <url-pattern>/</url-pattern>-->
-<!--    </servlet-mapping>-->
+    <servlet-mapping>
+        <servlet-name>helloWorld</servlet-name>
+        <url-pattern>/</url-pattern>
+        <url-pattern>/hello</url-pattern>
+        <url-pattern>/witaj</url-pattern>
+        <url-pattern>/Hello</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>myFilter</filter-name>
+        <filter-class>pl.sda.filter.MyFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>myFilter</filter-name>
+        <servlet-name>helloWorld</servlet-name>
+    </filter-mapping>
 </web-app>
